@@ -17,8 +17,7 @@ def generate_changelog(owner, repo, version):
         return []
 
     output = ["### Changes", ""]
-    for message in messages:
-        output.append("- " + message)
+    output.extend(f"- {message}" for message in messages)
     return output
 
 
