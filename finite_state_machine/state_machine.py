@@ -141,7 +141,4 @@ class transition:
                 state_machine.state = self.on_error
                 return
 
-        if asyncio.iscoroutinefunction(func):
-            return async_callable
-        else:
-            return sync_callable
+        return async_callable if asyncio.iscoroutinefunction(func) else sync_callable
